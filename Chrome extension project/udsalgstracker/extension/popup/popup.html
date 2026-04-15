@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Udsalgstracker</title>
+    <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Udsalgstracker</h1>
+            <button id="settingsBtn" class="settings-btn">Settings</button>
+        </header>
+
+        <div class="status-section">
+            <p id="status" class="status-text">Loading data...</p>
+            <button id="refreshBtn" class="refresh-btn">Refresh</button>
+        </div>
+
+        <div id="salesContainer" class="sales-container">
+            <!-- Sales will be loaded here -->
+        </div>
+
+        <div id="noSalesMessage" class="no-sales" style="display: none;">
+            <p>No sales found right now.</p>
+        </div>
+
+        <footer>
+            <p class="footer-text" id="lastUpdate">Last updated: never</p>
+        </footer>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Settings</h2>
+            <form id="settingsForm">
+                <div class="form-group">
+                    <label for="backendUrl">Backend URL:</label>
+                    <input type="url" id="backendUrl" placeholder="http://localhost:8000">
+                </div>
+                <div class="form-group">
+                    <label for="updateInterval">Update interval (minutes):</label>
+                    <input type="number" id="updateInterval" min="5" max="120" value="30">
+                </div>
+                <div class="form-group">
+                    <label for="notificationsEnabled">
+                        <input type="checkbox" id="notificationsEnabled" checked>
+                        Enable browser notifications
+                    </label>
+                </div>
+                <button type="submit" class="btn-primary">Save settings</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+</html>
